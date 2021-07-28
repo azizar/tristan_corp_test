@@ -64,7 +64,7 @@
 </form>
 <div class="text-center">
     <button class="btn btn-success" id="save-btn">Save</button>
-    <button class="btn btn-warning" id="cancel-btn">Cancel</button>
+    <a href="{{ route('invoice.index') }}" class="btn btn-warning" id="cancel-btn">Cancel</a>
 </div>
 </div>
 </div>
@@ -182,6 +182,7 @@
                 url : '/invoice',
                 data: requestForm,
                 success: function(res){
+                    sessionStorage.removeItem('items_invoice');
                     console.log(res);
                     alert('Invoice Created.')
                     window.location.href = '/invoice'
